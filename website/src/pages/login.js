@@ -13,7 +13,7 @@ import {
 } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 
-export default function App() {
+export default function Login() {
   return (
     <div>
       <Container>
