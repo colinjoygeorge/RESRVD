@@ -19,7 +19,13 @@ export default function App() {
       <Container>
         <Header>
           <Navbar appearance="inverse"
-          style={{ backgroundColor: "green" }}
+          style={{ backgroundColor: "green" }}>
+            <Navbar.Brand>RESRVD</Navbar.Brand>
+            <Nav>
+              <Nav.Item>Home</Nav.Item>
+              <Nav.Item>About</Nav.Item>
+            </Nav>
+          </Navbar>
         </Header>
       </Container>
     </div>
