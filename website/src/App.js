@@ -25,8 +25,16 @@ export default function App() {
               <Nav.Item>Home</Nav.Item>
               <Nav.Item>About</Nav.Item>
             </Nav>
+            <Nav pullRight>
+              <Nav.Item>Admin Login</Nav.Item>
+            </Nav>
           </Navbar>
         </Header>
+        <div style={{ textAlign: "center" }}>
+          <h2>RESRVD</h2>
+          <h4 style={{ color: "purple" }}>
+            
+          </h4>
       </Container>
     </div>
   )
