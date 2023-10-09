@@ -1,28 +1,10 @@
-import React from "react";
-import { Nav, NavLink, NavMenu }
-    from "./components/Navbar/NavbarElements";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
  
-const Navbar = () => {
-    return (
-        <>
-            <Nav>
-                <NavMenu>
-                    <NavLink to="/about" activeStyle>
-                        About
-                    </NavLink>
-                    <NavLink to="/calender" activeStyle>
-                        Calender
-                    </NavLink>
-                    <NavLink to="/admin" activeStyle>
-                        Admin
-                    </NavLink>
-                    <NavLink to="/login" activeStyle>
-                        Login
-                    </NavLink>
-                </NavMenu>
-            </Nav>
-        </>
-    );
-};
- 
-export default Navbar;
+ReactDOM.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
