@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS AdminLoginDB;
+
+-- Step 2: Use the Database (needs work)
+USE AdminLoginDB;
+
+-- Step 3: Create a Table to Store Admin Users
+CREATE TABLE IF NOT EXISTS AdminUsers (
+    admin_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN NOT NULL DEFAULT 1
+);
+
+-- Step 4: Insert Admin User(s) into the Table
+INSERT INTO AdminUsers (username, password, email) VALUES
+    ('your_username', 'your_password_hash', 'your_email');
+
+-- Step 5: Implement Login Functionality (in your application code) need to do better
+
+-- Example SQL query to check if the entered credentials are valid
+SELECT * FROM AdminUsers
+WHERE username = 'entered_username' AND password = 'entered_password_hash';
+
