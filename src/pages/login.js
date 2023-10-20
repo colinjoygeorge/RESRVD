@@ -1,63 +1,25 @@
-import { 
-	Container, 
-	Content, 
-	FlexboxGrid, 
-	Panel, 
-	Form, 
-	ButtonToolbar, 
-	Button, 
-} from "rsuite"; 
-import "rsuite/dist/rsuite.min.css"; 
+import React, { useState } from "react";
 
-export default function App() { 
-	return ( 
-		<div> 
-			<Container> 
-				<div style={{ textAlign: "center" }}> 
-					<h2>RESRVD</h2> 
-					<h4 style={{ color: "purple" }}> 
-						RESRVD Login Page 
-					</h4> 
-				</div> 
-				<Content> 
-					<FlexboxGrid justify="center"
-						style={{ margin: 20 }}> 
-						<FlexboxGrid.Item> 
-							<Panel header={<h3>Login</h3>} bordered> 
-								<Form> 
-									<Form.Group> 
-										<Form.ControlLabel> 
-											Email 
-										</Form.ControlLabel> 
-										<Form.Control name="email"
-											type="email" required /> 
-										<Form.HelpText tooltip> 
-											Required 
-										</Form.HelpText> 
-									</Form.Group> 
-									<Form.Group> 
-										<Form.ControlLabel> 
-											Password 
-										</Form.ControlLabel> 
-										<Form.Control name="password"
-											type="password" /> 
-									</Form.Group> 
-									<Form.Group> 
-										<ButtonToolbar> 
-											<Button appearance="primary"
-												color="green"> 
-												Sign in
-											</Button> 
-											<Button appearance="ghost"
-												color="red">Cancel</Button> 
-										</ButtonToolbar> 
-									</Form.Group> 
-								</Form> 
-							</Panel> 
-						</FlexboxGrid.Item> 
-					</FlexboxGrid> 
-				</Content> 
-			</Container> 
-		</div> 
-	); 
+export const Login = (props) => {
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(email);
+    }
+
+    return (
+        <div className="auth-form-container">
+            <h2>Login</h2>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label htmlFor="email">email</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                <label htmlFor="password">password</label>
+                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="**" id="password" name="password" />
+                <button type="submit">Log In</button>
+            </form>
+            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
+        </div>
+    )
 }
