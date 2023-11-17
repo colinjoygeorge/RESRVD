@@ -7,14 +7,18 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "dom": "^0.0.3",
+    "expo": "^49.0.17",
+    "expo-linear-gradient": "~12.3.0",
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
+    "react-native-linear-gradient": "^2.8.3",
     "react-router": "^6.16.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1",
     "rsuite": "^5.40.0",
+    "sqlite3": "^5.1.6",
     "styled-components": "^6.0.8",
     "web-vitals": "^2.1.4"
   },
@@ -41,5 +45,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "wee",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "wee"
+  },
+  "keywords": [
+    "2"
+  ],
+  "author": "dev",
+  "license": "ISC"
 }

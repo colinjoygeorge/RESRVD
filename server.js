@@ -1,22 +1,105 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const UserManagement = () => {
+  const [addUserForm, setAddUserForm] = useState({
+    username: '',
+    password: '',
+    email: '',
+  });
 
-const app = express();
-const port = 3000;
+  const [checkUserForm, setCheckUserForm] = useState({
+    checkUsername: '',
+    checkPassword: '',
+  });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+  const handleAddUserSubmit = (e) => {
+    e.preventDefault();
+    // Add logic to handle form submission for adding a user
+    console.log('Adding user:', addUserForm);
+  };
 
-app.get('/', (req, res) => {
-  res.sendFile('public/index.html', { root: __dirname });
-});
+  const handleCheckUserSubmit = (e) => {
+    e.preventDefault();
+    // Add logic to handle form submission for checking a user
+    console.log('Checking user:', checkUserForm);
+  };
 
-app.post('/submit', (req, res) => {
-  // Handle the input from the web page here
-  const inputData = req.body.input;
-  res.send(`Received input: ${inputData}`);
-});
+  const handleAddUserChange = (e) => {
+    setAddUserForm({
+      ...addUserForm,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+  const handleCheckUserChange = (e) => {
+    setCheckUserForm({
+      ...checkUserForm,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <div>
+      <h1>Add User</h1>
+      <form onSubmit={handleAddUserSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={addUserForm.username}
+          onChange={handleAddUserChange}
+          required
+        /><br />
+
+        <label htmlFor="password">Password (hashed):</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={addUserForm.password}
+          onChange={handleAddUserChange}
+          required
+        /><br />
+
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={addUserForm.email}
+          onChange={handleAddUserChange}
+          required
+        /><br />
+
+        <button type="submit">Add User</button>
+      </form>
+
+      <h1>Check User</h1>
+      <form onSubmit={handleCheckUserSubmit}>
+        <label htmlFor="checkUsername">Username:</label>
+        <input
+          type="text"
+          id="checkUsername"
+          name="checkUsername"
+          value={checkUserForm.checkUsername}
+          onChange={handleCheckUserChange}
+          required
+        /><br />
+
+        <label htmlFor="checkPassword">Password (hashed):</label>
+        <input
+          type="password"
+          id="checkPassword"
+          name="checkPassword"
+          value={checkUserForm.checkPassword}
+          onChange={handleCheckUserChange}
+          required
+        /><br />
+
+        <button type="submit">Check User</button>
+      </form>
+    </div>
+  );
+};
+
+export default UserManagement;
+
